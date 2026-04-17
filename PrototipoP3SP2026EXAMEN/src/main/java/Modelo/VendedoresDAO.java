@@ -208,7 +208,7 @@ bitacora.insert(usuarioBitacora,1,"DELETE usuario ID: " + usuario.getUsuId()
     return rows;
 }
 
-    public clsVendedores consultaUsuariosPorNombre(clsVendedores vendedor) {
+    public clsVendedores consultaVendedoresPorNombre(clsVendedores vendedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -293,4 +293,5 @@ bitacora.insert(usuarioBitacora,1,"DELETE usuario ID: " + usuario.getUsuId()
         //return personas;  // Si se utiliza un ArrayList
         return vendedores;
     }    
+
 }

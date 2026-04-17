@@ -4,6 +4,10 @@
  */
 package Controlador;
 
+import Modelo.UsuarioDAO;
+import Modelo.VendedoresDAO;
+import java.util.List;
+
 /**
  *
  * @author 50240
@@ -90,5 +94,38 @@ public class clsVendedores {
         return "clsVendedores{" + "codigo_vendedor=" + codigo_vendedor + ", nombre_vendedor=" + nombre_vendedor + ", direccion_vendedor=" + direccion_vendedor + ", telefono_vendedor=" + telefono_vendedor + ", nit_vendedor=" + nit_vendedor + ", estatus_vendedor=" + estatus_vendedor + '}';
     }
 
-   
+    public clsVendedores getBuscarInformacionVendedorPorNombre(clsVendedores vendedor) {
+        VendedoresDAO daovendedor = new VendedoresDAO();
+        return daovendedor.consultaVendedoresPorNombre(vendedor);
+    }
+
+    public clsVendedores getBuscarInformacionVendedorPorId(clsVendedores vendedor) {
+        VendedoresDAO daovendedor = new VendedoresDAO();
+        return daovendedor.consultaVendedoresId(vendedor);
+    }    
+
+    public List<clsVendedores> getListadoVendedores() {
+        VendedoresDAO daovendedor = new VendedoresDAO();
+        List<clsVendedores> listadoVendedores = daovendedor.consultaVendedores();
+        return listadoVendedores;
+    }
+
+    public int setBorrarVendedor(clsUsuario usuario,clsVendedores vendedor) {
+        VendedoresDAO daovendedor = new VendedoresDAO();
+        UsuarioDAO daousuario = new UsuarioDAO();
+        return daovendedor.borrarVendedores(usuario,vendedor);
+    }          
+
+    public int setIngresarVendedor(clsVendedores vendedor) {
+        VendedoresDAO daovendedor = new VendedoresDAO();
+        
+        return daovendedor.ingresaVendedores(vendedor);
+    }              
+
+    public int setModificarVendedor(clsUsuario usuario,clsVendedores vendedor) {
+        VendedoresDAO daovendedor = new VendedoresDAO();
+        UsuarioDAO daousuario = new UsuarioDAO();
+        return daovendedor.actualizaVendedores(usuario,vendedor);
+    }
 }
+   

@@ -5,6 +5,8 @@ package Vista;
 import Controlador.clsSeguridad;
 import Controlador.clsBitacora;
 import Controlador.clsUsuario;
+import Controlador.clsVendedores;
+import Modelo.VendedoresDAO; 
 import Controlador.clsUsuarioConectado;
 import Modelo.BitacoraDAO;
 import Modelo.Conexion;
@@ -25,7 +27,7 @@ import javax.swing.JOptionPane;
  */
 public class frmMantenimientoVendedores extends javax.swing.JInternalFrame {
     
-int codigoAplicacion=10;
+int codigoAplicacion=10087;
 
     public void llenadoDeCombos() {
         /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
@@ -38,31 +40,26 @@ int codigoAplicacion=10;
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID");
-        modelo.addColumn("Nombre Usuario");
-        modelo.addColumn("Contraseña");
-        modelo.addColumn("Última sesión");
-        modelo.addColumn("Estatus");
-        modelo.addColumn("Nombre Real");
-        modelo.addColumn("Correo");
-        modelo.addColumn("Teléfono");
-        modelo.addColumn("Dirección");
-        modelo.addColumn("Tipo Usuario");
-        clsUsuario usuario = new clsUsuario();
+        modelo.addColumn("CODIGO VENDEDOR");
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("DIRECCION");
+        modelo.addColumn("TELEFONO");
+        modelo.addColumn("NIT");
+        modelo.addColumn("ESTATUS");
+      
+        clsVendedores vendedor = new clsVendedores();
         //VendedorDAO vendedorDAO = new VendedorDAO();
-        List<clsUsuario> listaUsuarios = usuario.getListadoUsuarios();
+        List<clsVendedores> listaVendedores = vendedor.getListadoVendedores();
         tablaUsuarios.setModel(modelo);
-        String[] dato = new String[9];
-        for (int i = 0; i < listaUsuarios.size(); i++) {
-            dato[0] = Integer.toString(listaUsuarios.get(i).getUsuId());
-            dato[1] = listaUsuarios.get(i).getUsuNombre();
-            dato[2] = listaUsuarios.get(i).getUsuContrasena();
-            dato[3] = listaUsuarios.get(i).getUsuUltimaSesion();
-            dato[4] = listaUsuarios.get(i).getUsuEstatus();
-            dato[5] = listaUsuarios.get(i).getUsuNombreReal();
-            dato[6] = listaUsuarios.get(i).getUsuCorreo();
-            dato[7] = listaUsuarios.get(i).getUsuTelefono();
-            dato[8] = listaUsuarios.get(i).getUsuDireccion();
+        String[] dato = new String[6];
+        for (int i = 0; i < listaVendedores.size(); i++) {
+            dato[0] = (listaVendedores.get(i).getCodigo_vendedor());
+            dato[1] = listaVendedores.get(i).getNombre_vendedor();
+            dato[2] = listaVendedores.get(i).getDireccion_vendedor();
+            dato[3] = listaVendedores.get(i).getTelefono_vendedor();
+            dato[4] = listaVendedores.get(i).getNit_vendedor();
+            dato[5] = listaVendedores.get(i).getEstatus_vendedor();
+            
             
             modelo.addRow(dato);
         }       
@@ -139,17 +136,9 @@ int codigoAplicacion=10;
 
             },
             new String [] {
-                "ID Vendedor", "ID Empleado", "Correo", "Telefono", "Direccion", "Porcentaje", "Comision"
+                "CODIGO VENDEDOR", "NOMBRE", "DIRECCION", "TELEFONO", "NIT", "ESTATUS"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tablaUsuarios);
 
         btnReportes.setText("Reportes");
@@ -295,8 +284,7 @@ int codigoAplicacion=10;
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(label6)
                                 .addGap(29, 29, 29)
-                                .addComponent(txtUltimaSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(2, 2, 2))
+                                .addComponent(txtUltimaSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label9)
@@ -406,8 +394,9 @@ int codigoAplicacion=10;
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int registrosBorrados=0;
+        clsVendedores vendedor = new clsVendedores();
         clsUsuario usuario = new clsUsuario();
-        usuario.setUsuId(Integer.parseInt(txtbuscado.getText()));
+        vendedor.setCodigo_vendedor(txtbuscado.getText());
         registrosBorrados=usuario.setBorrarUsuario(usuario);
         JOptionPane.showMessageDialog(null, "Registro Borrado\n",
             "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
@@ -442,6 +431,7 @@ int codigoAplicacion=10;
             usuario.setIngresarUsuario(usuario);
             JOptionPane.showMessageDialog(null, "Registro Ingresado\n",
                 "Información del Sistema", JOptionPane.INFORMATION_MESSAGE);
+            
             int resultadoBitacora=0;
             clsBitacora bitacoraRegistro = new clsBitacora();
             bitacoraRegistro.setUsucodigo(usuario.getUsuId());
