@@ -1,0 +1,35 @@
+commit 3506c2fe10a3e3212a1e2cd42aeaf5c682c5f55b
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri Apr 17 14:39:16 2026 -0600
+
+    último cambio, me rendí
+
+commit f5a37cdf8e46b16281fb38cd9bf1a0dd42fe8722
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri Apr 17 13:58:47 2026 -0600
+
+    formulario corregido, pero sin funcionamiento aún
+
+commit c52e8edeb9c434de6287b1dc451198e4c49a40d9
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri Apr 17 13:41:31 2026 -0600
+
+    dao de vendedor a medias
+
+commit 85d4596ba8b078121eab93486f1917b03939bcc9
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri Apr 17 12:44:50 2026 -0600
+
+    lmdvendedores
+
+commit 55fce0ec2848badf75c87d23cb594ee9367579f3
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri Apr 17 12:32:24 2026 -0600
+
+    Formulario, Mdi y Modificación de Script
+
+commit df7da9585c0d9cd53adc25dc4fcf7748b0b056b6
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Fri Apr 17 11:50:10 2026 -0600
+
+    Initial commit
