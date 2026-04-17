@@ -78,10 +78,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- EXAMEN 
 
 CREATE TABLE IF NOT EXISTS `vendedores` (
-  `Aplcodigo` int(11) NOT NULL,
-  `Aplnombre` varchar(100) NOT NULL,
-  `Aplestado` varchar(100) NOT NULL,
-  PRIMARY KEY (`Aplcodigo`)
+  `codigo_vendedor` varchar(5) NOT NULL,
+  `nombre_vendedor` varchar(60) NOT NULL,
+  `direccion_vendedor` varchar(60) NOT NULL,
+  `telefono_vendedor` varchar(50) NOT NULL,
+`nit_vendedor` varchar(20) NOT NULL,
+`estatus_vendedor` varchar(1) NOT NULL,
+  PRIMARY KEY (`codigo_vendedor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
