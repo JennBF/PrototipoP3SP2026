@@ -3,6 +3,7 @@ Vista\frmMantenimientoUsuario$4.class
 Vista\frmRestablecerContraseña$2.class
 Vista\frmProcesoAplicacionPerfil$1.class
 Vista\frmLogin$2.class
+Vista\frmMantenimientoVendedores.class
 Controlador\clsAsignacionAplicacionUsuario.class
 Vista\frmMantenimientoBitacora$3.class
 Vista\frmProcesoAplicacionPerfil.class
@@ -72,6 +73,7 @@ Vista\frmProcesoAplicacionPerfil$8.class
 Vista\frmMantenimientoPerfil$3.class
 Vista\frmMantenimientoUsuario$3.class
 Vista\frmMantenimientoPerfil$6.class
+Vista\frmMantenimientoVendedores$1.class
 Modelo\AsignacionAplicacionPerfilDAO.class
 Vista\frmProcesoAplicacionPerfil$2.class
 Vista\MdiSeguridad$10.class
