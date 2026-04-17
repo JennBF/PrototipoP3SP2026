@@ -125,7 +125,7 @@ public class VendedoresDAO {
     return rows;
 }
 
-    public int actualizaVendedores(clsVendedores vendedor) {
+    public int actualizaVendedores(clsUsuario usuario,clsVendedores vendedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -152,7 +152,7 @@ public class VendedoresDAO {
         usuarioBitacora = usuario.getUsuId();
     }
 
-    bitacora.insert(usuarioBitacora, 1, "UPDATE usuario: " + usuario.getUsuNombre());
+    bitacora.insert(usuarioBitacora, 1, "UPDATE usuario: " + vendedor.getNombre_vendedor());
 }
             
             
@@ -168,7 +168,7 @@ public class VendedoresDAO {
         return rows;
     }
 
-    public int borrarUsuarios(clsVendedores usuario) {
+    public int borrarVendedores(clsUsuario usuario,clsVendedores vendedor) {
     Connection conn = null;
     PreparedStatement stmt = null;
     int rows = 0;
